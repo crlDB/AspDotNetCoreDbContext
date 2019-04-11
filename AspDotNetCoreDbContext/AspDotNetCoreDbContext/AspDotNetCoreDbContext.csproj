@@ -14,7 +14,6 @@
 
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="Src\css\" />
     <Folder Include="Src\d.ts\" />
     <Folder Include="Src\js\" />

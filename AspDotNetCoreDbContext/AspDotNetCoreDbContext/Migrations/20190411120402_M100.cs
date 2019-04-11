@@ -1,30 +1,4 @@
-# AspDotNetCoreDbContext
-
-## Connectionstring - appsettings.json
-
-```
-  "ConnectionStrings": {
-    "AspDotNetCoreDB": "Server=.\\SQLEXPRESS;Database=asp_net_core_db;MultipleActiveResultSets=true;User Id=sa;Password=XXX"
-  }
-```
-
-## DbContext - DbAspNetCoreCts.cs
-
-## DbSet - Table1.cs / Table2.cs 
-
-## DI - startup.cs
-```
-    // database
-    services.AddDbContext<DbAspNetCoreCtx>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("AspDotNetCoreDB")));
-
-```
-
-## add ef migrations 
-> dotnet ef migrations add MXXX -c DbAspNetCoreCtx
-
-```
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AspDotNetCoreDbContext.Migrations
@@ -55,9 +29,3 @@ namespace AspDotNetCoreDbContext.Migrations
         }
     }
 }
-```
-
-## update ef migrations
-> dotnet ef database update -c DbAspNetCoreCtx
-
-
