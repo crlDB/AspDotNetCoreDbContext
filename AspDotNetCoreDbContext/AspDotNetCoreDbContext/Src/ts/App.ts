@@ -9,8 +9,30 @@ import "../css/site.css";
 import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 
-$('main')
-    .append('<p>JQuery loaded</p>');
 
-$('main')
-    .append('<button type="button" class="btn btn-primary">Bootstrap loaded</button>');
+// ophalen data
+$('#btn1').click(() => {
+
+    let data: toServer1 = {
+        cmdNbr: 100
+    };
+
+
+    $.ajax({
+        url: "home/creatrec1",
+        data: JSON.stringify(data),
+        type: 'POST',
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json; charset=utf-8',
+        success: (data: toClient1) => {
+
+            $("#list1").prepend(`<li class="list-group-item">${data.ctxCtor}/${data.countRec}</li>`);
+
+
+          
+
+        }
+    });
+});
+

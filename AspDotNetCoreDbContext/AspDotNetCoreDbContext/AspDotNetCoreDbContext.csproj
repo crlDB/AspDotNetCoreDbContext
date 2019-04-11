@@ -20,4 +20,21 @@
     <Folder Include="Src\img\" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Compile Update="Models\ServerClient.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>ServerClient.cs.d.ts</LastGenOutput>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="Models\ServerClient.cs.d.ts">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ServerClient.cs</DependentUpon>
+    </None>
+  </ItemGroup>
+
 </Project>

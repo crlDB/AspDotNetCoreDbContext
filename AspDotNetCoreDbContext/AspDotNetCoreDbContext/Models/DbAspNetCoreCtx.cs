@@ -18,6 +18,7 @@ namespace AspDotNetCoreDbContext
         public DbAspNetCoreCtx(DbContextOptions<DbAspNetCoreCtx> options)
         : base(options)
         {
+            Helper.CtxConstructor++;
         }
 
         public DbSet<Table1> Table1 { get; set; }

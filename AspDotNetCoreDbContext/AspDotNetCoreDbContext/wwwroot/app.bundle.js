@@ -148,10 +148,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(/*! ../img/core2.0.png */ "./src/img/core2.0.png");
 __webpack_require__(/*! ../css/site.css */ "./src/css/site.css");
 __webpack_require__(/*! ../../node_modules/bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
-$('main')
-    .append('<p>JQuery loaded</p>');
-$('main')
-    .append('<button type="button" class="btn btn-primary">Bootstrap loaded</button>');
+// ophalen data
+$('#btn1').click(function () {
+    var data = {
+        cmdNbr: 100
+    };
+    $.ajax({
+        url: "home/creatrec1",
+        data: JSON.stringify(data),
+        type: 'POST',
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json; charset=utf-8',
+        success: function (data) {
+            $("#list1").prepend("<li class=\"list-group-item\">" + data.ctxCtor + "/" + data.countRec + "</li>");
+        }
+    });
+});
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
