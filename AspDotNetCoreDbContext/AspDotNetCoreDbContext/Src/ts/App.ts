@@ -14,7 +14,7 @@ import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 $('#btn1').click(() => {
 
     let data: toServer1 = {
-        cmdNbr: 100
+        cmdNbr: 1
     };
 
 
@@ -36,3 +36,24 @@ $('#btn1').click(() => {
     });
 });
 
+$('#btn2').click(() => {
+
+    let data: toServer1 = {
+        cmdNbr: 2
+    };
+    
+
+    $.ajax({
+        url: "home/creatrec2",
+        data: JSON.stringify(data),
+        type: 'POST',
+        dataType: 'json',
+        processData: false,
+        contentType: 'application/json; charset=utf-8',
+        success: (data: toClient1) => {
+
+            $("#list1").prepend(`<li class="list-group-item">${data.ctxCtor}/${data.countRec}</li>`);
+
+        }
+    });
+});

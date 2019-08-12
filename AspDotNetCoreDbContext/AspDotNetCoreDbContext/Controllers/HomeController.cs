@@ -66,6 +66,40 @@ namespace AspDotNetCoreDbContext.Controllers
             // return data
             return Json(toCli);
         }
+
+        [HttpPost]
+        public IActionResult CreatRec2([FromBody]ToServer1 toSrv)
+        {
+
+            ILayer1 LA1 = _serviceProvider.GetService<ILayer1>();
+            ToClient1 toCli = LA1.CreateRec();
+
+            ILayer1 LA1a = _serviceProvider.GetService<ILayer1>();
+            toCli = LA1a.CreateRec();
+
+            ILayer1 LA1b = _serviceProvider.GetService<ILayer1>();
+            toCli = LA1b.CreateRec();
+
+            // to client
+            var _dbCfg = _serviceProvider.GetService<DbAspNetCoreCtx>();
+
+            try
+            {
+                toCli.CountRec = _dbCfg.Table1.Count();
+            }
+            catch (Exception)
+            {
+                toCli.CountRec = 0;
+            }
+
+
+
+
+            toCli.CtxCtor = Helper.CtxConstructor;
+
+            return Json(toCli);
+        }
+
     }
 
 }
