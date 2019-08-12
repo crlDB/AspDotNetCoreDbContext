@@ -37,6 +37,9 @@ namespace AspDotNetCoreDbContext
                  options.UseSqlServer(Configuration.GetConnectionString("AspDotNetCoreDB")));
             //services.AddTransient<DbAspNetCoreCtx>();
 
+            services.AddTransient<ILayer1, Layer1>();
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
